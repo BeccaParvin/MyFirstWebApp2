@@ -1,5 +1,6 @@
 <html lang="en">
     <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
     body {background-color: rgb(245, 235, 224);
         border: 1px solid slategrey;
@@ -14,9 +15,7 @@
         text-align:center;}
     p {color: rgb(32, 51, 51);
         font-family: Calibri;
-        text-align: center;
-        margin-left: 500px;
-        margin-right: 500px;}
+        text-align: center;}
     img {
         display: block;
         margin-left: auto;
@@ -27,11 +26,22 @@
 
     <body>
         <h1>About Me:</h1>
-        <p>- My name is Becca.<br>- I have no background in computer science, so everything on this course is new to me.<br>- Until recently deciding to retrain I was working as a Probation Officer.</p>
+        <p onmouseover="mOver(this)" onmouseout="mOut(this)">- My name is Becca.</p>
+        <script>
+            function mOver(obj) {
+              obj.innerHTML = "Or Rebecca, when I'm in trouble"
+            }
+            
+            function mOut(obj) {
+              obj.innerHTML = "- My name is Becca."
+            }
+            </script>
+        <p>- I have no background in computer science, so everything on this course is new to me.</p>
+        <p>- Until recently deciding to retrain I was working as a Probation Officer.</p>
         <hr>
         <h2>My favourites:</h2>
         <p><b>- My favourite animals are quokkas.</b></p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/RottnestQuokka.jpg/1920px-RottnestQuokka.jpg" alt="Smiling quokka" width="320" height="200">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/RottnestQuokka.jpg/1920px-RottnestQuokka.jpg" alt="Smiling quokka" width="18%" height="25%">
         <p>You can find some interesting facts about them here:</p>
         <p align="center"><a href="https://wwf.org.au/blogs/8-interesting-facts-about-quokkas/">Visit WWF Australia</a></p>
         <p>My favourite fact from WWF Australia's website is number 3:</p>
@@ -69,7 +79,39 @@
             </p>
         </pre>
         <p><b>- My favourite place to be is on the East Coast of Scotland around where my family are from, and many still live.</b> It's a beautiful place with amazing people and I would love to move there with my husband some day. If you're ever interested in a trip up there, I would definitely recommend looking up Scotland's Secret Bunker, The Real Mary King's Close, Crail Seafood festival, and Pittenweem arts festival (which is very unique, utilising people's homes in the village as galleries) - to name just a few!</p>
-        <hr>
+        
+        <p><b>- One of my favourite things to do is read.</b> I can lose entire days stuck in a book. Up until getting married last year, I hadn't had a TV licence for over a decade. I have included a random book generator below to give some new book ideas, both for me and for anyone else who finds joy getting lost in the pages as I do.</p>
+        <p id="title"></p>
+        <p id="authors"></p>
+        <script>
+            fetch("https://api.freeapi.app/api/v1/public/books/book/random")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("title").innerHTML = data.data.volumeInfo.title
+                document.getElementById("authors").innerHTML = data.data.volumeInfo.authors.join(", ")
+            })
+        </script>
+
+        <form>
+            <fieldset>
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname" required><br>
+                <label for="favourite">Favourite thing:</label><br>
+                <input type="text" id="favourite" name="favourite" required><br><br>
+                <textarea name="message" rows="5" cols="40">Reasons why...</textarea>
+                <br><br>
+                <input type="submit" value="Submit">
+            </fieldset>
+          </form> 
+
+        <button onclick="showPopup()">Click Me</button>
+
+        <script>
+            function showPopup() {
+                alert("Thanks for visiting!");
+            }
+        </script>
+        
         <h3><small> <title="Thanks for hovering!">This text isn't important, I just wanted to include the <mark>'title'</mark> attribute here</small></h3>
 
     </body>
