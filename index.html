@@ -50,7 +50,7 @@
         <br>
         <p><b>- My favourite poem is <cite>The Road Not Taken</cite> by Robert Frost, which reads as follows:</b></p>
         <pre>
-            <p text-align="center">
+            <p>
             <i>
             Two roads diverged in a yellow wood,
             And sorry I could not travel both
@@ -81,14 +81,14 @@
         <p><b>- My favourite place to be is on the East Coast of Scotland around where my family are from, and many still live.</b> It's a beautiful place with amazing people and I would love to move there with my husband some day. If you're ever interested in a trip up there, I would definitely recommend looking up Scotland's Secret Bunker, The Real Mary King's Close, Crail Seafood festival, and Pittenweem arts festival (which is very unique, utilising people's homes in the village as galleries) - to name just a few!</p>
         
         <p><b>- One of my favourite things to do is read.</b> I can lose entire days stuck in a book. Up until getting married last year, I hadn't had a TV licence for over a decade. I have included a random book generator below to give some new book ideas, both for me and for anyone else who finds joy getting lost in the pages as I do.</p>
-        <p id="title"></p>
-        <p id="authors"></p>
+        <p id="title" style="font-weight: bold;"></p>
+        <p id="authors" style="font-weight: bold;"></p>
         <script>
             fetch("https://api.freeapi.app/api/v1/public/books/book/random")
             .then(response => response.json())
             .then(data => {
-                document.getElementById("title").innerHTML = data.data.volumeInfo.title
-                document.getElementById("authors").innerHTML = data.data.volumeInfo.authors.join(", ")
+                document.getElementById("title").innerHTML = "Title: " + data.data.volumeInfo.title
+                document.getElementById("authors").innerHTML = "Author/s: " + data.data.volumeInfo.authors.join(", ")
             })
         </script>
 
