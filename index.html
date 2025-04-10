@@ -1,5 +1,6 @@
 <html lang="en">
     <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
     body {background-color: rgb(245, 235, 224);
@@ -21,6 +22,19 @@
         margin-left: auto;
         margin-right: auto;}
     </style>
+        <script>
+            $(document).ready(function(){
+              $("input").focus(function(){
+                $(this).css("background-color", "lightblue");
+                });
+                $("#background").hover(function(){
+                    alert("And I still feel like I have no idea what is going on!");
+                },
+                function(){
+                    alert("I hope you're learning is going well!");
+                }); 
+            });
+        </script>
         <title>MyFirstWebApp</title>
     </head>
 
@@ -36,7 +50,7 @@
               obj.innerHTML = "- My name is Becca."
             }
             </script>
-        <p>- I have no background in computer science, so everything on this course is new to me.</p>
+        <p id="background">- I have no background in computer science, so everything on this course is new to me.</p>
         <p>- Until recently deciding to retrain I was working as a Probation Officer.</p>
         <hr>
         <h2>My favourites:</h2>
